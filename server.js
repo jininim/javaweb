@@ -76,13 +76,31 @@ for (let j = 0; j < 10; j++) {
 }
 
 let arr_max = [];
+let arr_avg = [];
+let arr_min = [];
 for (let i = 0; i <5; i++){
   for(let j = 0; j < 5; j++){
     let a = Math.max.apply(null,coretask_value[i][j]);
+    let b = Math.min.apply(null,coretask_value[i][j]);
+    let c = avg(coretask_value[i][j]);
     arr_max.push(a);
+    arr_min.push(b);
+    arr_avg.push(c);
   }
 }
 console.log(arr_max);
+console.log(arr_min);
+console.log(arr_avg);
+function avg(arr1) {
+  let avg = 0;
+  let sum = 0;
+  for (let i = 0; i<arr1.length; i ++) {
+    sum += parseInt(arr1[i]);
+  }
+  avg = sum / arr1.length;
+  return Math.floor(avg);
+ 
+}
 //        task1	task2	task3	  task4	  task5
 // core1	886	  749	  849	    909	    352	
 // core2	959	  849	  788	    1053	  324	
