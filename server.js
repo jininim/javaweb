@@ -4,14 +4,10 @@ const port = 3000;
 const multer = require('multer');
 const fs = require('fs');
 const mongoose = require('mongoose');
-const coretask_value = new Array(50);
+
 let k = 0;
 
 app.use(express.static('high'))
-
-for ( var i = 0; i < 50; i++){
-  coretask_value[i] = new Array(5);
-}
 
 
     
@@ -46,36 +42,70 @@ try {
     arr.splice(i,1);
     i--;
   }
-  
+
 }
-for(let i = 0; i < 50; i++){
-  for(let j = 0; j<5; j++){
-    coretask_value[i][j] = arr[k];
-    k++;
+
+let coretask_value = [
+  [[], [], [], [], []],
+  [[], [], [], [], []],
+  [[], [], [], [], []],
+  [[], [], [], [], []],
+  [[], [], [], [], []]
+];
+
+
+for (let j = 0; j < 10; j++) {
+  let newArr = arr.slice(j * 25, j * 25 + 25);
+  for (let i = 0; i < 25; i++) {
+    if (i % 5 === 0) {
+      coretask_value[parseInt(i / 5)][0].push(newArr[i]);
+    }
+    if (i % 5 === 1) {
+      coretask_value[parseInt(i / 5)][1].push(newArr[i]);
+    }
+    if (i % 5 === 2) {
+      coretask_value[parseInt(i / 5)][2].push(newArr[i]);
+    }
+    if (i % 5 === 3) {
+      coretask_value[parseInt(i / 5)][3].push(newArr[i]);
+    }
+    if (i % 5 === 4) {
+      coretask_value[parseInt(i / 5)][4].push(newArr[i]);
+    }
   }
-  
 }
-console.log(coretask_value)
+
+let arr_max = [];
+for (let i = 0; i <5; i++){
+  for(let j = 0; j < 5; j++){
+    let a = Math.max.apply(null,coretask_value[i][j]);
+    arr_max.push(a);
+  }
+}
+console.log(arr_max);
+//        task1	task2	task3	  task4	  task5
+// core1	886	  749	  849	    909	    352	
+// core2	959	  849	  788	    1053	  324	
+// core3	942	  867	  930	    1064	  365	
+// core4	820	  817	  816	    929	   336	
+// core5	803	  786	  929	    958	   329	
+
+
+  
+   
+  
 
 }
 catch(err) {
   console.log(err);
 }
+//배열정리
 
 
 
-// //db연결
-// mongoose
-//   .connect(
-//     'mongodb+srv://leejin:12887587@cluster0.sfrhl.mongodb.net/?retryWrites=true&w=majority',
-//     {
-    
-//     }
-//   )
-//   .then(() => console.log('MongoDB conected'))
-//   .catch((err) => {
-//     console.log(err);
-//   });
+
+
+
   
  
 
