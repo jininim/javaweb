@@ -1,11 +1,13 @@
 const express = require('express');
 const app = express();
-const port = process.env.PORT || 3000;
+const port = 3000;
 const multer = require('multer');
 const fs = require('fs');
 const mongoose = require('mongoose');
 const coretask_value = new Array(50);
 let k = 0;
+
+app.use(express.static('high'))
 
 for ( var i = 0; i < 50; i++){
   coretask_value[i] = new Array(5);
@@ -14,7 +16,7 @@ for ( var i = 0; i < 50; i++){
 
     
 app.listen(port, () => {
-    console.log(`server is listening at localhost:${process.env.PORT}`);
+    console.log(`server is listening at localhost:${port}`);
 });
 const storage = multer.diskStorage({
     destination:  (req, file, cb) => {
@@ -30,10 +32,10 @@ const upload = multer({ storage: storage }); // 미들웨어 생성
 app.get('', (req,res) => {
     res.sendFile(__dirname + '/index.html')
 })
-app.post('/user', upload.single('userfile'), (req, res, next) => {
-    res.status(201).send({
-        message: "텍스트 저장 성공",
-        fileInfo: req.file
+app.post('/uploadFile', upload.single('userfile'), (req, res, next) => {
+
+    res.sendFile(__dirname + '/high/uploadFile.html');
+
     })
     //파일 읽기
 try {
@@ -59,7 +61,7 @@ console.log(coretask_value)
 catch(err) {
   console.log(err);
 }
-});
+
 
 
 // //db연결
