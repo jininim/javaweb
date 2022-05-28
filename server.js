@@ -7,7 +7,7 @@ import nunjucks from 'nunjucks'
 const app = express();
 app.set('view engine', 'html'); 
 
-nunjucks.configure('template', { //넌적스 연결
+nunjucks.configure('views', { //넌적스 연결
   autoescape: true,
   express: app,
   watch: true
@@ -19,11 +19,6 @@ const coretask_value = new Array(50);
 const __dirname = path.resolve(); //dirname 변수로 전환
 
 let k = 0;
-const  Max_num = [100,200,300,400,500];
-const  Avg_num = [10,20,30,40,50];
-const  Min_num = [1,2,3,4,5];
-
-
 
 for ( var i = 0; i < 50; i++){ // 받은 데이터 값 배열
   coretask_value[i] = new Array(5);
@@ -44,14 +39,15 @@ const storage = multer.diskStorage({
 const upload = multer({ storage: storage }); // 미들웨어 생성
 
 app.get('', (req,res) => {
-  res.render('index.html')
-    // res.sendFile(__dirname + '/index.html')
+  // res.render('index.html')
+    res.sendFile(__dirname + '/index.html')
 })
 app.post('/uploadFile', upload.single('userfile'), (req, res, next) => {
-  res.render('uploadFile.html', { Max_num, Avg_num, Min_num})
-    // res.sendFile(__dirname + '/high/uploadFile.html');
+  // res.render('uploadFile.html')
+    res.sendFile(__dirname + '/high/uploadFile.html');
 
     })
+
     //파일 읽기
 try {
   var data = fs.readFileSync('inputFile.txt', 'utf8');
@@ -61,9 +57,7 @@ try {
     arr.splice(i,1);
     i--;
   }
-
 }
-
 let coretask_value = [
   [[], [], [], [], []],
   [[], [], [], [], []],
@@ -110,6 +104,7 @@ for (let i = 0; i <5; i++){
 console.log(arr_max);
 console.log(arr_min);
 console.log(arr_avg);
+
 function avg(arr1) {
   let avg = 0;
   let sum = 0;
