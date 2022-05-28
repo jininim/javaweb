@@ -15,7 +15,7 @@ Highcharts.chart('container', {
     },
 
     xAxis: {
-       categories:['core1','core2','core3','core4','core5']
+       categories:['','core2','core3','core4','core5']
     },
 
     legend: {
@@ -34,20 +34,15 @@ Highcharts.chart('container', {
     },
 
     series: [{
-        name: 'task1',
-        data: [43934, 52503, 57177, 69658, 97031]
+        name: 'Max',
+        data: [1,2,3,4,5]
     }, {
-        name: 'task2',
+        name: 'Avg',
         data: [24916, 24064, 29742, 29851, 32490]
     }, {
-        name: 'task3',
+        name: 'Min',
         data: [11744, 17722, 16005, 19771, 20185]
-    }, {
-        name: 'task4',
-        data: [null, null, 7988, 12169, 15112]
-    }, {
-        name: 'task5',
-        data: [12908, 5948, 8105, 11248, 8989]
+
     }],
 
     responsive: {
