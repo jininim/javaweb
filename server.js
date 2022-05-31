@@ -49,6 +49,7 @@ app.post('/uploadFile', upload.single('userfile'), (req, res, next) => {
     })
 
     //파일 읽기
+
 try {
   var data = fs.readFileSync('inputFile.txt', 'utf8');
   let arr = data.match(/\d+/g);
@@ -88,6 +89,16 @@ for (let j = 0; j < 10; j++) {
   }
 }
 
+function avg(arr1) {
+  let avg = 0;
+  let sum = 0;
+  for (let i = 0; i<arr1.length; i ++) {
+    sum += parseInt(arr1[i]);
+  }
+  avg = sum / arr1.length;
+  return Math.floor(avg);
+}
+
 let arr_max = [];
 let arr_avg = [];
 let arr_min = [];
@@ -101,25 +112,6 @@ for (let i = 0; i <5; i++){
     arr_avg.push(c);
   }
 }
-console.log(arr_max);
-console.log(arr_min);
-console.log(arr_avg);
-
-function avg(arr1) {
-  let avg = 0;
-  let sum = 0;
-  for (let i = 0; i<arr1.length; i ++) {
-    sum += parseInt(arr1[i]);
-  }
-  avg = sum / arr1.length;
-  return Math.floor(avg);
- 
-}
-
-// console.log(Max_num)
-// console.log(Avg_num)  //값 찍기
-// console.log(Min_num)
-// console.log(coretask_value)
 
 }
 catch(err) {
