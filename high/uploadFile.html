@@ -195,8 +195,14 @@ Highcharts.chart('container5', {
     title: {
         text: 'core1의 task별 수행능력'
     },
+
     xAxis: {
        categories:['task1','task2','task3','task4','task5']
+    },
+    yAxis: {
+        title: {
+            text: 'Values'
+        }
     },
     series: [{
         name: 'Max',
@@ -207,35 +213,9 @@ Highcharts.chart('container5', {
     }, {
         name: 'avg',
         data: [parseInt("{{coretask_result[0][0][2]}}"),parseInt("{{coretask_result[0][1][2]}}"),parseInt("{{coretask_result[0][2][2]}}"),parseInt("{{coretask_result[0][3][2]}}"),parseInt("{{coretask_result[0][4][2]}}")]
-    }],
-    legend: {
-        layout: 'vertical',
-        align: 'right',
-        verticalAlign: 'middle'
-    },
-    plotOptions: {
-        line: {
-            dataLabels: {
-              enabled: true
-            },
-            enableMouseTracking: false
-          }
-        
-        },
-        responsive: {
-        rules: [{
-            condition: {
-                maxWidth: 500
-            },
-            chartOptions: {
-                legend: {
-                    layout: 'horizontal',
-                    align: 'center',
-                    verticalAlign: 'bottom'
-                }
-            }
-        }]
-    },
+
+    }]
+   
 })
 Highcharts.chart('container7', {
     title: {
@@ -243,6 +223,11 @@ Highcharts.chart('container7', {
     },
     xAxis: {
        categories:['task1','task2','task3','task4','task5']
+    },
+    yAxis: {
+        title: {
+            text: 'Values'
+        }
     },
     series: [{
         name: 'Max',
@@ -253,35 +238,7 @@ Highcharts.chart('container7', {
     }, {
         name: 'avg',
         data: [parseInt("{{coretask_result[1][0][2]}}"),parseInt("{{coretask_result[1][1][2]}}"),parseInt("{{coretask_result[1][2][2]}}"),parseInt("{{coretask_result[1][3][2]}}"),parseInt("{{coretask_result[1][4][2]}}")]
-    }],
-    legend: {
-        layout: 'vertical',
-        align: 'right',
-        verticalAlign: 'middle'
-    },
-    plotOptions: {
-        line: {
-            dataLabels: {
-              enabled: true
-            },
-            enableMouseTracking: false
-          }
-        
-        },
-        responsive: {
-        rules: [{
-            condition: {
-                maxWidth: 500
-            },
-            chartOptions: {
-                legend: {
-                    layout: 'horizontal',
-                    align: 'center',
-                    verticalAlign: 'bottom'
-                }
-            }
-        }]
-    },
+    }]
 })
 Highcharts.chart('container8', {
     title: {
@@ -289,6 +246,11 @@ Highcharts.chart('container8', {
     },
     xAxis: {
        categories:['task1','task2','task3','task4','task5']
+    },
+    yAxis: {
+        title: {
+            text: 'Values'
+        }
     },
     series: [{
         name: 'Max',
@@ -299,35 +261,7 @@ Highcharts.chart('container8', {
     }, {
         name: 'avg',
         data: [parseInt("{{coretask_result[2][0][2]}}"),parseInt("{{coretask_result[2][1][2]}}"),parseInt("{{coretask_result[2][2][2]}}"),parseInt("{{coretask_result[2][3][2]}}"),parseInt("{{coretask_result[2][4][2]}}")]
-    }],
-    legend: {
-        layout: 'vertical',
-        align: 'right',
-        verticalAlign: 'middle'
-    },
-    plotOptions: {
-        line: {
-            dataLabels: {
-              enabled: true
-            },
-            enableMouseTracking: false
-          }
-        
-        },
-        responsive: {
-        rules: [{
-            condition: {
-                maxWidth: 500
-            },
-            chartOptions: {
-                legend: {
-                    layout: 'horizontal',
-                    align: 'center',
-                    verticalAlign: 'bottom'
-                }
-            }
-        }]
-    },
+    }]
 })
 Highcharts.chart('container9', {
     title: {
@@ -335,6 +269,11 @@ Highcharts.chart('container9', {
     },
     xAxis: {
        categories:['task1','task2','task3','task4','task5']
+    },
+    yAxis: {
+        title: {
+            text: 'Values'
+        }
     },
     series: [{
         name: 'Max',
@@ -345,35 +284,7 @@ Highcharts.chart('container9', {
     }, {
         name: 'avg',
         data: [parseInt("{{coretask_result[3][0][2]}}"),parseInt("{{coretask_result[3][1][2]}}"),parseInt("{{coretask_result[3][2][2]}}"),parseInt("{{coretask_result[3][3][2]}}"),parseInt("{{coretask_result[3][4][2]}}")]
-    }],
-    legend: {
-        layout: 'vertical',
-        align: 'right',
-        verticalAlign: 'middle'
-    },
-    plotOptions: {
-        line: {
-            dataLabels: {
-              enabled: true
-            },
-            enableMouseTracking: false
-          }
-        
-        },
-        responsive: {
-        rules: [{
-            condition: {
-                maxWidth: 500
-            },
-            chartOptions: {
-                legend: {
-                    layout: 'horizontal',
-                    align: 'center',
-                    verticalAlign: 'bottom'
-                }
-            }
-        }]
-    },
+    }]
 })
 Highcharts.chart('container10', {
     title: {
@@ -381,6 +292,11 @@ Highcharts.chart('container10', {
     },
     xAxis: {
        categories:['task1','task2','task3','task4','task5']
+    },
+    yAxis: {
+        title: {
+            text: 'Values'
+        }
     },
     series: [{
         name: 'Max',
@@ -391,36 +307,10 @@ Highcharts.chart('container10', {
     }, {
         name: 'avg',
         data: [parseInt("{{coretask_result[4][0][2]}}"),parseInt("{{coretask_result[4][1][2]}}"),parseInt("{{coretask_result[4][2][2]}}"),parseInt("{{coretask_result[4][3][2]}}"),parseInt("{{coretask_result[4][4][2]}}")]
-    }],
-    legend: {
-        layout: 'vertical',
-        align: 'right',
-        verticalAlign: 'middle'
-    },
-    plotOptions: {
-        line: {
-            dataLabels: {
-              enabled: true
-            },
-            enableMouseTracking: false
-          }
-        
-        },
-        responsive: {
-        rules: [{
-            condition: {
-                maxWidth: 500
-            },
-            chartOptions: {
-                legend: {
-                    layout: 'horizontal',
-                    align: 'center',
-                    verticalAlign: 'bottom'
-                }
-            }
-        }]
-    },
+    }]
 })
+
+
 
             </script> 
             </p>
