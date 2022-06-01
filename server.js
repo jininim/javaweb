@@ -101,7 +101,6 @@ app.post('/uploadFile', upload.single('userfile'), (req, res, next) => {
         coretask_result[i][j].push(a,b,c);
       }
     }
-    console.table(arr_max);
 
     
     function avg(arr1) {
@@ -120,21 +119,6 @@ app.post('/uploadFile', upload.single('userfile'), (req, res, next) => {
       console.log(err);
     }
     res.render('uploadFile.html', {coretask_result} );
-    res.render('uploadFile1.html',{coretask_result});
+   
 
     })
-    
-
-
-
-
-
-
-
-
-  
- 
-
-
-
-    
