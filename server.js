@@ -27,31 +27,7 @@ let arr_max = [];
       [[], [], [], [], []],
       [[], [], [], [], []]
     ];
-// let core1task1 =[];
-// let core1task2 =[];
-// let core1task3 =[];
-// let core1task4 =[];
-// let core1task5 =[];
-// let core2task1 =[];
-// let core2task2 =[];
-// let core2task3 =[];
-// let core2task4 =[];
-// let core2task5 =[];
-// let core3task1 =[];
-// let core3task2 =[];
-// let core3task3 =[];
-// let core3task4 =[];
-// let core3task5 =[];
-// let core4task1 =[];
-// let core4task2 =[];
-// let core4task3 =[];
-// let core4task4 =[];
-// let core4task5 =[];
-// let core5task1 =[];
-// let core5task2 =[];
-// let core5task3 =[];
-// let core5task4 =[];
-// let core5task5 =[];
+
 
 
 
@@ -144,6 +120,7 @@ app.post('/uploadFile', upload.single('userfile'), (req, res, next) => {
       console.log(err);
     }
     res.render('uploadFile.html', {coretask_result} );
+    res.render('uploadFile1.html',{coretask_result});
 
     })
     
