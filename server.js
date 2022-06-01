@@ -120,21 +120,6 @@ app.post('/uploadFile', upload.single('userfile'), (req, res, next) => {
       console.log(err);
     }
     res.render('uploadFile.html', {coretask_result} );
-    res.render('uploadFile1.html',{coretask_result});
+    // res.render('uploadFile1.html',{coretask_result});
 
     })
-    
-
-
-
-
-
-
-
-
-  
- 
-
-
-
-    

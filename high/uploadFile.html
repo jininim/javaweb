@@ -1,32 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./highchart.css">
+    
     <title>Document</title>
     <script src="https://code.highcharts.com/highcharts.js"></script>
     <script src="https://code.highcharts.com/modules/series-label.js"></script>
     <script src="https://code.highcharts.com/modules/exporting.js"></script>
     <script src="https://code.highcharts.com/modules/export-data.js"></script>
     <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+
+    <script type="text/javascript">
+        var bDisplay = true;
+        function getCore(){
+
+            var con = document.getElementById("CoreView");
+            var con1 = document.getElementById("TaskView");
+
+                con.style.display = 'block';
+                con1.style.display = 'none';
+
+        }
+        function getTask(){
+            var con = document.getElementById("CoreView");
+            var con1 = document.getElementById("TaskView");
+
+                con1.style.display = 'block';
+                con.style.display = 'none';
+            }
+        
+        </script>
 </head>
 <body>
     <!-- <input type="submit" value="Core" > -->
     <figure class="highcharts-figure">
-        <div id="container">
-          <div id="container1"></div>
-          <div id="container2"></div>
-          <div id="container3"></div>
-          <div id="container4"></div>
-          <div id="container5"></div>
+        <div>
+            <input type ="button" onclick="getCore()" value="Core">
+            <input type ="button" onclick="getTask()" value="Task">
+            <h2> core별 task별 수행능력 버튼을 통해 확인 가능</h2>
         </div>
+        
+        <div id="container">
+            <div id = "CoreView">
+                <div id="container1"></div>
+                <div id="container2"></div>
+                <div id="container3"></div>
+                <div id="container4"></div>
+                <div id="container5"></div>
+            </div>
+
+             <div id = "TaskView">
+                <div id="container6"></div>
+                <div id="container7"></div>
+                <div id="container8"></div>
+                <div id="container9"></div>
+                <div id="container10"></div>
+             </div>
+        </div>
+    
           <p class="highcharts-description">
             <script >
 //                 app.get('', (req,res) => {
 //     res.sendFile(__dirname + '/high/uploadFile1.html')
 // })
                 //넌적스 값 확인 coretask_result[코어][태스크][max=0,min=1,avg=2]
+             
 console.table("{{coretask_result[0][0][0]}}");
 
 Highcharts.setOptions({
@@ -53,8 +95,25 @@ Highcharts.setOptions({
             },
             enableMouseTracking: false
           }
-        }
+        
+        },
+        responsive: {
+        rules: [{
+            condition: {
+                maxWidth: 500
+            },
+            chartOptions: {
+                legend: {
+                    layout: 'horizontal',
+                    align: 'center',
+                    verticalAlign: 'bottom'
+                }
+            }
+        }]
+    },
+        
 });
+
 Highcharts.chart('container1', {
     title: {
         text: 'task1의 core별 수행능력'
@@ -115,7 +174,7 @@ Highcharts.chart('container4', {
         data: [parseInt("{{coretask_result[0][3][2]}}"),parseInt("{{coretask_result[1][3][2]}}"),parseInt("{{coretask_result[2][3][2]}}"),parseInt("{{coretask_result[3][3][2]}}"),parseInt("{{coretask_result[4][3][2]}}")]
     }]
 })
-Highcharts.chart('container5', {
+Highcharts.chart('container5', { 
     title: {
         text: 'task5의 core별 수행능력'
     },
@@ -128,10 +187,101 @@ Highcharts.chart('container5', {
     }, {
         name: 'avg',
         data: [parseInt("{{coretask_result[0][4][2]}}"),parseInt("{{coretask_result[1][4][2]}}"),parseInt("{{coretask_result[2][4][2]}}"),parseInt("{{coretask_result[3][4][2]}}"),parseInt("{{coretask_result[4][4][2]}}")]
+        }]
+    })
+
+    // Task 1~5 까지
+
+    Highcharts.chart('container6', {
+    title: {
+        text: 'core1의 task별 수행능력'
+    },
+    xAxis: {
+       categories:['task1','task2','task3','task4','task5']
+    },
+    series: [{
+        name: 'Max',
+        data: [parseInt("{{coretask_result[0][0][0]}}"),parseInt("{{coretask_result[0][1][0]}}"),parseInt("{{coretask_result[0][2][0]}}"),parseInt("{{coretask_result[0][3][0]}}"),parseInt("{{coretask_result[0][4][0]}}")]
+    }, {
+        name: 'min',
+        data: [parseInt("{{coretask_result[0][0][1]}}"),parseInt("{{coretask_result[0][1][1]}}"),parseInt("{{coretask_result[0][2][1]}}"),parseInt("{{coretask_result[0][3][1]}}"),parseInt("{{coretask_result[0][4][1]}}")]
+    }, {
+        name: 'avg',
+        data: [parseInt("{{coretask_result[0][0][2]}}"),parseInt("{{coretask_result[0][1][2]}}"),parseInt("{{coretask_result[0][2][2]}}"),parseInt("{{coretask_result[0][3][2]}}"),parseInt("{{coretask_result[0][4][2]}}")]
     }]
 })
-
-
+Highcharts.chart('container7', {
+    title: {
+        text: 'core2의 task별 수행능력'
+    },
+    xAxis: {
+       categories:['task1','task2','task3','task4','task5']
+    },
+    series: [{
+        name: 'Max',
+        data: [parseInt("{{coretask_result[1][0][0]}}"),parseInt("{{coretask_result[1][1][0]}}"),parseInt("{{coretask_result[1][2][0]}}"),parseInt("{{coretask_result[1][3][0]}}"),parseInt("{{coretask_result[1][4][0]}}")]
+    }, {
+        name: 'min',
+        data: [parseInt("{{coretask_result[1][0][1]}}"),parseInt("{{coretask_result[1][1][1]}}"),parseInt("{{coretask_result[1][2][1]}}"),parseInt("{{coretask_result[1][3][1]}}"),parseInt("{{coretask_result[1][4][1]}}")]
+    }, {
+        name: 'avg',
+        data: [parseInt("{{coretask_result[1][0][2]}}"),parseInt("{{coretask_result[1][1][2]}}"),parseInt("{{coretask_result[1][2][2]}}"),parseInt("{{coretask_result[1][3][2]}}"),parseInt("{{coretask_result[1][4][2]}}")]
+    }]
+})
+Highcharts.chart('container8', {
+    title: {
+        text: 'core3의 task별 수행능력'
+    },
+    xAxis: {
+       categories:['task1','task2','task3','task4','task5']
+    },
+    series: [{
+        name: 'Max',
+        data: [parseInt("{{coretask_result[2][0][0]}}"),parseInt("{{coretask_result[2][1][0]}}"),parseInt("{{coretask_result[2][2][0]}}"),parseInt("{{coretask_result[2][3][0]}}"),parseInt("{{coretask_result[2][4][0]}}")]
+    }, {
+        name: 'min',
+        data: [parseInt("{{coretask_result[2][0][1]}}"),parseInt("{{coretask_result[2][1][1]}}"),parseInt("{{coretask_result[2][2][1]}}"),parseInt("{{coretask_result[2][3][1]}}"),parseInt("{{coretask_result[2][4][1]}}")]
+    }, {
+        name: 'avg',
+        data: [parseInt("{{coretask_result[2][0][2]}}"),parseInt("{{coretask_result[2][1][2]}}"),parseInt("{{coretask_result[2][2][2]}}"),parseInt("{{coretask_result[2][3][2]}}"),parseInt("{{coretask_result[2][4][2]}}")]
+    }]
+})
+Highcharts.chart('container9', {
+    title: {
+        text: 'core4의 task별 수행능력'
+    },
+    xAxis: {
+       categories:['task1','task2','task3','task4','task5']
+    },
+    series: [{
+        name: 'Max',
+        data: [parseInt("{{coretask_result[3][0][0]}}"),parseInt("{{coretask_result[3][1][0]}}"),parseInt("{{coretask_result[3][2][0]}}"),parseInt("{{coretask_result[3][3][0]}}"),parseInt("{{coretask_result[3][4][0]}}")]
+    }, {
+        name: 'min',
+        data: [parseInt("{{coretask_result[3][0][1]}}"),parseInt("{{coretask_result[3][1][1]}}"),parseInt("{{coretask_result[3][2][1]}}"),parseInt("{{coretask_result[3][3][1]}}"),parseInt("{{coretask_result[3][4][1]}}")]
+    }, {
+        name: 'avg',
+        data: [parseInt("{{coretask_result[3][0][2]}}"),parseInt("{{coretask_result[3][1][2]}}"),parseInt("{{coretask_result[3][2][2]}}"),parseInt("{{coretask_result[3][3][2]}}"),parseInt("{{coretask_result[3][4][2]}}")]
+    }]
+})
+Highcharts.chart('container10', {
+    title: {
+        text: 'core5의 task별 수행능력'
+    },
+    xAxis: {
+       categories:['task1','task2','task3','task4','task5']
+    },
+    series: [{
+        name: 'Max',
+        data: [parseInt("{{coretask_result[4][0][0]}}"),parseInt("{{coretask_result[4][1][0]}}"),parseInt("{{coretask_result[4][2][0]}}"),parseInt("{{coretask_result[4][3][0]}}"),parseInt("{{coretask_result[4][4][0]}}")]
+    }, {
+        name: 'min',
+        data: [parseInt("{{coretask_result[4][0][1]}}"),parseInt("{{coretask_result[4][1][1]}}"),parseInt("{{coretask_result[4][2][1]}}"),parseInt("{{coretask_result[4][3][1]}}"),parseInt("{{coretask_result[4][4][1]}}")]
+    }, {
+        name: 'avg',
+        data: [parseInt("{{coretask_result[4][0][2]}}"),parseInt("{{coretask_result[4][1][2]}}"),parseInt("{{coretask_result[4][2][2]}}"),parseInt("{{coretask_result[4][3][2]}}"),parseInt("{{coretask_result[4][4][2]}}")]
+    }]
+})
   /*  responsive: {
         rules: [{
             condition: {
