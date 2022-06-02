@@ -3,14 +3,14 @@ const app = express();
 const port = 3000;
 const multer = require('multer');
 const fs = require('fs');
-const mongoose = require('mongoose');
 const nunjucks = require('nunjucks');
 app.use(express.static('high'))
 nunjucks.configure('high', {
   autoescape: true,
   express: app
 });
-let arr_max = [];
+//배열선언
+    let arr_max = [];
     let arr_avg = [];
     let arr_min = [];
     let coretask_value = [
@@ -55,8 +55,10 @@ app.post('/uploadFile', upload.single('userfile'), (req, res, next) => {
 
     res.sendFile(__dirname + '/high/uploadFile.html');
     try {
-      var data = fs.readFileSync('inputFile.txt', 'utf8');
-      let arr = data.match(/\d+/g);
+      let data = fs.readFileSync('inputFile.txt', 'utf8');
+      let arr = data.match(/\d+/g); // 숫자값만 받아옴.
+
+      //core1 <-에 붙은 숫자 제거
        for(let i = 0; i< arr.length; i++){
       if (arr[i] ==='1' || arr[i] ==='2'|| arr[i]==='3'|| arr[i] ==='4'|| arr[i] ==='5'){
         arr.splice(i,1);
@@ -69,22 +71,22 @@ app.post('/uploadFile', upload.single('userfile'), (req, res, next) => {
     
     
     for (let j = 0; j < 10; j++) {
-      let newArr = arr.slice(j * 25, j * 25 + 25);
+      let new_arr = arr.slice(j * 25, j * 25 + 25);
       for (let i = 0; i < 25; i++) {
         if (i % 5 === 0) {
-          coretask_value[parseInt(i / 5)][0].push(newArr[i]);
+          coretask_value[parseInt(i / 5)][0].push(new_arr[i]);
         }
         if (i % 5 === 1) {
-          coretask_value[parseInt(i / 5)][1].push(newArr[i]);
+          coretask_value[parseInt(i / 5)][1].push(new_arr[i]);
         }
         if (i % 5 === 2) {
-          coretask_value[parseInt(i / 5)][2].push(newArr[i]);
+          coretask_value[parseInt(i / 5)][2].push(new_arr[i]);
         }
         if (i % 5 === 3) {
-          coretask_value[parseInt(i / 5)][3].push(newArr[i]);
+          coretask_value[parseInt(i / 5)][3].push(new_arr[i]);
         }
         if (i % 5 === 4) {
-          coretask_value[parseInt(i / 5)][4].push(newArr[i]);
+          coretask_value[parseInt(i / 5)][4].push(new_arr[i]);
         }
       }
     }
@@ -117,7 +119,9 @@ app.post('/uploadFile', upload.single('userfile'), (req, res, next) => {
     }
     catch(err) {
       console.log(err);
+      
     }
+    //넌적스사용 uploadfile.html에 coratask_result값 전달
     res.render('uploadFile.html', {coretask_result} );
 
     })
