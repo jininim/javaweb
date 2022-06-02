@@ -97,13 +97,10 @@ app.post('/uploadFile', upload.single('userfile'), (req, res, next) => {
         let a = Math.max.apply(null,coretask_value[i][j]);
         let b = Math.min.apply(null,coretask_value[i][j]);
         let c = avg(coretask_value[i][j]);
-        arr_max.push(a);
-        arr_min.push(b);
-        arr_avg.push(c);
         coretask_result[i][j].push(a,b,c);
       }
     }
-
+    
     
     function avg(arr1) {
       let avg = 0;
@@ -115,7 +112,7 @@ app.post('/uploadFile', upload.single('userfile'), (req, res, next) => {
       return Math.floor(avg);
      
     }
-
+    console.table(coretask_value[0][0]);
     }
     catch(err) {
       console.log(err);
