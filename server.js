@@ -67,7 +67,7 @@ app.post('/uploadFile', upload.single('userfile'), (req, res, next) => {
     
    
     
-    
+    //각 코어 태스크별로 값 10개씩 배열에 저장.
     for (let j = 0; j < 10; j++) {
       let new_arr = arr.slice(j * 25, j * 25 + 25);
       for (let i = 0; i < 25; i++) {
@@ -89,7 +89,7 @@ app.post('/uploadFile', upload.single('userfile'), (req, res, next) => {
       }
     }
     
-    
+    //coretask_result값 넣기
     for (let i = 0; i <5; i++){
       for(let j = 0; j < 5; j++){
         let a = Math.max.apply(null,coretask_value[i][j]);
@@ -100,10 +100,7 @@ app.post('/uploadFile', upload.single('userfile'), (req, res, next) => {
         coretask_result[i][j].push(a,b,c,d,e);
       }
     }
-    console.log(coretask_value[0][0]);
-    console.log(coretask_result[0][0]);
-    
-    
+    //평균
     function avg(arr1) {
       let avg = 0;
       let sum = 0;
@@ -114,6 +111,7 @@ app.post('/uploadFile', upload.single('userfile'), (req, res, next) => {
       return Math.floor(avg);
      
     }
+    // 표준편차 구하는함수
     function standard_deviation(arr1){
       let mean = avg(arr1);
       let total = 0;
@@ -124,6 +122,7 @@ app.post('/uploadFile', upload.single('userfile'), (req, res, next) => {
       let a = Math.sqrt((total/(arr1.length-1)));
       return Math.floor(a);
     }
+    // 중앙값
     function median(arr1){
 
       arr1.sort(function(a,b){
