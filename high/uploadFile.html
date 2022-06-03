@@ -68,7 +68,6 @@
 
                 //넌적스 값 확인 coretask_result[코어][태스크][max=0,min=1,avg=2]
              
-console.table("{{coretask_result[0][0][0]}}");
 
 Highcharts.setOptions({
     subtitle: {
@@ -126,6 +125,12 @@ Highcharts.chart('container1', {
     }, {
         name: 'avg',
         data: [parseInt("{{coretask_result[0][0][2]}}"),parseInt("{{coretask_result[1][0][2]}}"),parseInt("{{coretask_result[2][0][2]}}"),parseInt("{{coretask_result[3][0][2]}}"),parseInt("{{coretask_result[4][0][2]}}")]
+    }, {
+        name: 'standard deviation',
+        data: [parseInt("{{coretask_result[0][0][3]}}"),parseInt("{{coretask_result[1][0][3]}}"),parseInt("{{coretask_result[2][0][3]}}"),parseInt("{{coretask_result[3][0][3]}}"),parseInt("{{coretask_result[4][0][3]}}")]
+    }, {
+        name: 'median',
+        data: [parseInt("{{coretask_result[0][0][4]}}"),parseInt("{{coretask_result[1][0][4]}}"),parseInt("{{coretask_result[2][0][4]}}"),parseInt("{{coretask_result[3][0][4]}}"),parseInt("{{coretask_result[4][0][4]}}")]
     }]
 })
 Highcharts.chart('container2', {
@@ -141,6 +146,12 @@ Highcharts.chart('container2', {
     }, {
         name: 'avg',
         data: [parseInt("{{coretask_result[0][1][2]}}"),parseInt("{{coretask_result[1][1][2]}}"),parseInt("{{coretask_result[2][1][2]}}"),parseInt("{{coretask_result[3][1][2]}}"),parseInt("{{coretask_result[4][1][2]}}")]
+    }, {
+        name: 'standard deviation',
+        data: [parseInt("{{coretask_result[0][1][3]}}"),parseInt("{{coretask_result[1][1][3]}}"),parseInt("{{coretask_result[2][1][3]}}"),parseInt("{{coretask_result[3][1][3]}}"),parseInt("{{coretask_result[4][1][3]}}")]
+    }, {
+        name: 'median',
+        data: [parseInt("{{coretask_result[0][1][4]}}"),parseInt("{{coretask_result[1][1][4]}}"),parseInt("{{coretask_result[2][1][4]}}"),parseInt("{{coretask_result[3][1][4]}}"),parseInt("{{coretask_result[4][1][4]}}")]
     }]
 })
 Highcharts.chart('container3', {
@@ -156,6 +167,12 @@ Highcharts.chart('container3', {
     }, {
         name: 'avg',
         data: [parseInt("{{coretask_result[0][2][2]}}"),parseInt("{{coretask_result[1][2][2]}}"),parseInt("{{coretask_result[2][2][2]}}"),parseInt("{{coretask_result[3][2][2]}}"),parseInt("{{coretask_result[4][2][2]}}")]
+    }, {
+        name: 'standard deviation',
+        data: [parseInt("{{coretask_result[0][2][3]}}"),parseInt("{{coretask_result[1][2][3]}}"),parseInt("{{coretask_result[2][2][3]}}"),parseInt("{{coretask_result[3][2][3]}}"),parseInt("{{coretask_result[4][2][3]}}")]
+    }, {
+        name: 'median',
+        data: [parseInt("{{coretask_result[0][2][4]}}"),parseInt("{{coretask_result[1][2][4]}}"),parseInt("{{coretask_result[2][2][4]}}"),parseInt("{{coretask_result[3][2][4]}}"),parseInt("{{coretask_result[4][2][4]}}")]
     }]
 })
 Highcharts.chart('container4', {
@@ -171,6 +188,12 @@ Highcharts.chart('container4', {
     }, {
         name: 'avg',
         data: [parseInt("{{coretask_result[0][3][2]}}"),parseInt("{{coretask_result[1][3][2]}}"),parseInt("{{coretask_result[2][3][2]}}"),parseInt("{{coretask_result[3][3][2]}}"),parseInt("{{coretask_result[4][3][2]}}")]
+    }, {
+        name: 'standard deviation',
+        data: [parseInt("{{coretask_result[0][3][3]}}"),parseInt("{{coretask_result[1][3][3]}}"),parseInt("{{coretask_result[2][3][3]}}"),parseInt("{{coretask_result[3][3][3]}}"),parseInt("{{coretask_result[4][3][3]}}")]
+    }, {
+        name: 'median',
+        data: [parseInt("{{coretask_result[0][3][4]}}"),parseInt("{{coretask_result[1][3][4]}}"),parseInt("{{coretask_result[2][3][4]}}"),parseInt("{{coretask_result[3][3][4]}}"),parseInt("{{coretask_result[4][3][4]}}")]
     }]
 })
 Highcharts.chart('container5', { 
@@ -186,7 +209,13 @@ Highcharts.chart('container5', {
     }, {
         name: 'avg',
         data: [parseInt("{{coretask_result[0][4][2]}}"),parseInt("{{coretask_result[1][4][2]}}"),parseInt("{{coretask_result[2][4][2]}}"),parseInt("{{coretask_result[3][4][2]}}"),parseInt("{{coretask_result[4][4][2]}}")]
-        }]
+        }, {
+        name: 'standard deviation',
+        data: [parseInt("{{coretask_result[0][4][3]}}"),parseInt("{{coretask_result[1][4][3]}}"),parseInt("{{coretask_result[2][4][3]}}"),parseInt("{{coretask_result[3][4][3]}}"),parseInt("{{coretask_result[4][4][3]}}")]
+    }, {
+        name: 'median',
+        data: [parseInt("{{coretask_result[0][4][4]}}"),parseInt("{{coretask_result[1][4][4]}}"),parseInt("{{coretask_result[2][4][4]}}"),parseInt("{{coretask_result[3][4][4]}}"),parseInt("{{coretask_result[4][4][4]}}")]
+    }]
     })
 
     // Task 1~5 까지
@@ -213,7 +242,12 @@ Highcharts.chart('container5', {
     }, {
         name: 'avg',
         data: [parseInt("{{coretask_result[0][0][2]}}"),parseInt("{{coretask_result[0][1][2]}}"),parseInt("{{coretask_result[0][2][2]}}"),parseInt("{{coretask_result[0][3][2]}}"),parseInt("{{coretask_result[0][4][2]}}")]
-
+    }, {
+        name: 'standard deviation',
+        data: [parseInt("{{coretask_result[0][0][3]}}"),parseInt("{{coretask_result[0][1][3]}}"),parseInt("{{coretask_result[0][2][3]}}"),parseInt("{{coretask_result[0][3][3]}}"),parseInt("{{coretask_result[0][4][3]}}")]
+    }, {
+        name: 'median',
+        data: [parseInt("{{coretask_result[0][0][4]}}"),parseInt("{{coretask_result[0][1][4]}}"),parseInt("{{coretask_result[0][2][4]}}"),parseInt("{{coretask_result[0][3][4]}}"),parseInt("{{coretask_result[0][4][4]}}")]
     }]
    
 })
@@ -238,6 +272,12 @@ Highcharts.chart('container7', {
     }, {
         name: 'avg',
         data: [parseInt("{{coretask_result[1][0][2]}}"),parseInt("{{coretask_result[1][1][2]}}"),parseInt("{{coretask_result[1][2][2]}}"),parseInt("{{coretask_result[1][3][2]}}"),parseInt("{{coretask_result[1][4][2]}}")]
+    }, {
+        name: 'standard deviation',
+        data: [parseInt("{{coretask_result[1][0][3]}}"),parseInt("{{coretask_result[1][1][3]}}"),parseInt("{{coretask_result[1][2][3]}}"),parseInt("{{coretask_result[1][3][3]}}"),parseInt("{{coretask_result[1][4][3]}}")]
+    }, {
+        name: 'median',
+        data: [parseInt("{{coretask_result[1][0][4]}}"),parseInt("{{coretask_result[1][1][4]}}"),parseInt("{{coretask_result[1][2][4]}}"),parseInt("{{coretask_result[1][3][4]}}"),parseInt("{{coretask_result[1][4][4]}}")]
     }]
 })
 Highcharts.chart('container8', {
@@ -261,6 +301,12 @@ Highcharts.chart('container8', {
     }, {
         name: 'avg',
         data: [parseInt("{{coretask_result[2][0][2]}}"),parseInt("{{coretask_result[2][1][2]}}"),parseInt("{{coretask_result[2][2][2]}}"),parseInt("{{coretask_result[2][3][2]}}"),parseInt("{{coretask_result[2][4][2]}}")]
+    }, {
+        name: 'standard deviation',
+        data: [parseInt("{{coretask_result[2][0][3]}}"),parseInt("{{coretask_result[2][1][3]}}"),parseInt("{{coretask_result[2][2][3]}}"),parseInt("{{coretask_result[2][3][3]}}"),parseInt("{{coretask_result[2][4][3]}}")]
+    }, {
+        name: 'median',
+        data: [parseInt("{{coretask_result[2][0][4]}}"),parseInt("{{coretask_result[2][1][4]}}"),parseInt("{{coretask_result[2][2][4]}}"),parseInt("{{coretask_result[2][3][4]}}"),parseInt("{{coretask_result[2][4][4]}}")]
     }]
 })
 Highcharts.chart('container9', {
@@ -284,6 +330,12 @@ Highcharts.chart('container9', {
     }, {
         name: 'avg',
         data: [parseInt("{{coretask_result[3][0][2]}}"),parseInt("{{coretask_result[3][1][2]}}"),parseInt("{{coretask_result[3][2][2]}}"),parseInt("{{coretask_result[3][3][2]}}"),parseInt("{{coretask_result[3][4][2]}}")]
+    }, {
+        name: 'standard deviation',
+        data: [parseInt("{{coretask_result[3][0][3]}}"),parseInt("{{coretask_result[3][1][3]}}"),parseInt("{{coretask_result[3][2][3]}}"),parseInt("{{coretask_result[3][3][3]}}"),parseInt("{{coretask_result[3][4][3]}}")]
+    }, {
+        name: 'median',
+        data: [parseInt("{{coretask_result[3][0][4]}}"),parseInt("{{coretask_result[3][1][4]}}"),parseInt("{{coretask_result[3][2][4]}}"),parseInt("{{coretask_result[3][3][4]}}"),parseInt("{{coretask_result[3][4][4]}}")]
     }]
 })
 Highcharts.chart('container10', {
@@ -307,6 +359,12 @@ Highcharts.chart('container10', {
     }, {
         name: 'avg',
         data: [parseInt("{{coretask_result[4][0][2]}}"),parseInt("{{coretask_result[4][1][2]}}"),parseInt("{{coretask_result[4][2][2]}}"),parseInt("{{coretask_result[4][3][2]}}"),parseInt("{{coretask_result[4][4][2]}}")]
+    }, {
+        name: 'standard deviation',
+        data: [parseInt("{{coretask_result[4][0][3]}}"),parseInt("{{coretask_result[4][1][3]}}"),parseInt("{{coretask_result[4][2][3]}}"),parseInt("{{coretask_result[4][3][3]}}"),parseInt("{{coretask_result[4][4][3]}}")]
+    }, {
+        name: 'median',
+        data: [parseInt("{{coretask_result[4][0][4]}}"),parseInt("{{coretask_result[4][1][4]}}"),parseInt("{{coretask_result[4][2][4]}}"),parseInt("{{coretask_result[4][3][4]}}"),parseInt("{{coretask_result[4][4][4]}}")]
     }]
 })
 

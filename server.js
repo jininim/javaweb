@@ -4,15 +4,13 @@ const port = 3000;
 const multer = require('multer');
 const fs = require('fs');
 const nunjucks = require('nunjucks');
+const { sort } = require('nunjucks/src/filters');
 app.use(express.static('high'))
 nunjucks.configure('high', {
   autoescape: true,
   express: app
 });
-//배열선언
-    let arr_max = [];
-    let arr_avg = [];
-    let arr_min = [];
+    //배열선언
     let coretask_value = [
       [[], [], [], [], []],
       [[], [], [], [], []],
@@ -46,7 +44,7 @@ const storage = multer.diskStorage({
     }
   })
 
-const upload = multer({ storage: storage }); // 미들웨어 생성
+const upload = multer({ storage: storage });
 
 app.get('', (req,res) => {
     res.sendFile(__dirname + '/index.html')
@@ -97,9 +95,13 @@ app.post('/uploadFile', upload.single('userfile'), (req, res, next) => {
         let a = Math.max.apply(null,coretask_value[i][j]);
         let b = Math.min.apply(null,coretask_value[i][j]);
         let c = avg(coretask_value[i][j]);
-        coretask_result[i][j].push(a,b,c);
+        let d = standard_deviation(coretask_value[i][j]);
+        let e = median(coretask_value[i][j]);
+        coretask_result[i][j].push(a,b,c,d,e);
       }
     }
+    console.log(coretask_value[0][0]);
+    console.log(coretask_result[0][0]);
     
     
     function avg(arr1) {
@@ -112,8 +114,26 @@ app.post('/uploadFile', upload.single('userfile'), (req, res, next) => {
       return Math.floor(avg);
      
     }
-    console.table(coretask_value[0][0]);
+    function standard_deviation(arr1){
+      let mean = avg(arr1);
+      let total = 0;
+      for(let i =0; i <arr1.length; i++){
+        let deviation = arr1[i]- mean;
+        total = deviation ** 2;
+      }
+      let a = Math.sqrt((total/(arr1.length-1)));
+      return Math.floor(a);
     }
+    function median(arr1){
+
+      arr1.sort(function(a,b){
+        return a-b;
+      });
+      return parseInt(arr1[4])
+      
+    }
+    }
+    
     catch(err) {
       console.log(err);
       
